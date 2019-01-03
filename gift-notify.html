@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('gift-notify',{
+        category: 'function',
+        color: '#00b8d4',
+        defaults: {
+            server: {value:"", type:"gift-configurator"},
+            name: {value:""}, 
+        },
+        inputs:1,
+        outputs:1,
+        icon: "brith_day.png",
+        label: function() {
+            return this.name|| "生日提醒";
+        }
+       
+    });
+</script>
+
+<script type="text/x-red" data-template-name="gift-notify">
+    <div class="form-row">
+        <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+        <input type="text" id="node-input-server" placeholder="Server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-bookmark"></i> 默认名称</label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="gift-notify">
+    <p>生日提醒节点</p>
+    <p>对指定节点信息里面的人员做定时提醒</p>
+</script>
