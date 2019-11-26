@@ -4,7 +4,7 @@
  * @Description   : 
  * @Date          : 2019-11-26 23:51:05
  * @LastEditors   : fineemb
- * @LastEditTime  : 2019-11-26 23:52:38
+ * @LastEditTime  : 2019-11-27 00:52:44
  */
 module.exports = function (RED) {
     const miDevicesUtils = require('./utils');
@@ -24,6 +24,7 @@ module.exports = function (RED) {
         }
         let days = this.server.days
         let brithDay = this.server.deviceList
+        let type = this.server.name
 
         node.on('input', function (msg) {
             let payload = [];
@@ -31,9 +32,10 @@ module.exports = function (RED) {
             for (let i in brithDay) {
                 let day = brithDay[i]
                 let datas = miDevicesUtils.isBrithday(day.mac,nd)
-                if (datas['days'] < days) {
+                if (datas['days'] < days && datas['days'] > -1) {
                     let notify = Object.assign(day)
                         notify['datas'] = datas;
+                        notify['type'] = type;
                     payload.push(notify)
                 }
             }
