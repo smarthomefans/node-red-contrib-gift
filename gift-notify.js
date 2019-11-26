@@ -1,3 +1,11 @@
+/*
+ * @Author        : fineemb
+ * @Github        : https://github.com/fineemb
+ * @Description   : 
+ * @Date          : 2019-11-26 23:51:05
+ * @LastEditors   : fineemb
+ * @LastEditTime  : 2019-11-26 23:52:38
+ */
 module.exports = function (RED) {
     const miDevicesUtils = require('./utils');
 
@@ -14,27 +22,18 @@ module.exports = function (RED) {
             node.status({fill:"red", shape:"ring", text: "没有配置正确的人员信息"});
             return
         }
-        let s1 = this.server.s1
-        let s2 = this.server.s2
-        let s3 = this.server.s3
+        let days = this.server.days
         let brithDay = this.server.deviceList
 
         node.on('input', function (msg) {
-            let payload = []
+            let payload = [];
+            let nd = msg.nowDate?msg.nowDate:-1
             for (let i in brithDay) {
                 let day = brithDay[i]
-                let days = miDevicesUtils.isBrithday(day.mac)
-                if (days >= 0 && days < 7) {
+                let datas = miDevicesUtils.isBrithday(day.mac,nd)
+                if (datas['days'] < days) {
                     let notify = Object.assign(day)
-                    if (days == 0 && s1) {
-                        notify['day'] = 0
-                    }else if(days == 3 && s2) {
-                        notify['day'] = 3
-                    }else if(days == 7 && s3) {
-                        notify['day'] = 7
-                    }else {
-                        continue
-                    }
+                        notify['datas'] = datas;
                     payload.push(notify)
                 }
             }

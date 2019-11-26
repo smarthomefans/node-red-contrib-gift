@@ -3,9 +3,7 @@
         category: 'config',
         defaults: {
             name : { value:"默认人员信息",required:true},
-            s1: { value: false },
-            s2: { value: false },
-            s3: { value: false },
+            days: { value: 7,required:true,validate:RED.validators.number()},
             deviceList: {value:[{ mac:"", desc:"", model:"zinguo_b2"}]},
         },
         label: function() {
@@ -86,22 +84,7 @@
             <tr>
                 <td><label><i class="fa fa-plug"></i>提醒设置</label></td>
                 <td>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>当天提醒</th>
-                                <th>提前3天</th>
-                                <th>提前7天</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input id="node-config-input-s1" type='checkbox' /></td>
-                                <td><input id="node-config-input-s2" type='checkbox' /></td>
-                                <td><input id="node-config-input-s3" type='checkbox' /></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                  提前<input style="width: 50px;" type="text" id="node-config-input-days">天开始提醒
                 </td>
             </tr>
         </table>
@@ -114,6 +97,7 @@
 
 <script type="text/x-red" data-help-name="gift-configurator">
     <p>人员信息</p>
-    <p>填写人员生日信息,格式xx-xx,例如:11-1,填写的月和日年份不用填写</p>
+    <p>设置提前开始提醒的天数</p>
+    <p>填写人员生日信息,格式xx-xx,例如:11-1,填写的月和日,年份不用填写</p>
     <p></p>
 </script>

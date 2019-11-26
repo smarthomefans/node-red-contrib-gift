@@ -1,11 +1,17 @@
+/*
+ * @Author        : fineemb
+ * @Github        : https://github.com/fineemb
+ * @Description   : 
+ * @Date          : 2019-11-26 23:51:05
+ * @LastEditors   : fineemb
+ * @LastEditTime  : 2019-11-26 23:52:18
+ */
 module.exports = function (RED) {
 
     function GiftConfiguratorNode(n) {
         RED.nodes.createNode(this, n);
         this.name = n.name;
-        this.s1 = n.s1
-        this.s2 = n.s2
-        this.s3 = n.s3
+        this.days = n.days
         this.deviceList = n.deviceList || [];
         
     }

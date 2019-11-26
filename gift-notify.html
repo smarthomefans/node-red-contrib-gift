@@ -1,3 +1,11 @@
+<!--
+ * @Author        : fineemb
+ * @Github        : https://github.com/fineemb
+ * @Description   : 
+ * @Date          : 2019-11-26 23:51:05
+ * @LastEditors   : fineemb
+ * @LastEditTime  : 2019-11-26 23:52:56
+ -->
 <script type="text/javascript">
     RED.nodes.registerType('gift-notify',{
         category: 'function',
@@ -10,7 +18,7 @@
         outputs:1,
         icon: "brith_day.png",
         label: function() {
-            return this.name|| "生日提醒";
+            return this.name|| "纪念日提醒";
         }
        
     });
@@ -28,6 +36,7 @@
 </script>
 
 <script type="text/x-red" data-help-name="gift-notify">
-    <p>生日提醒节点</p>
+    <p>纪念日提醒节点</p>
     <p>对指定节点信息里面的人员做定时提醒</p>
+    <p>可自定义输入时间戳, 输入格式为msg.nowDate</p>
 </script>
