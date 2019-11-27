@@ -4,7 +4,7 @@
  * @Description   : 
  * @Date          : 2019-11-26 23:51:05
  * @LastEditors   : fineemb
- * @LastEditTime  : 2019-11-27 00:06:21
+ * @LastEditTime  : 2019-11-27 22:14:00
  -->
 # node-red-contrib-gift
 
@@ -30,6 +30,7 @@ $ npm i node-red-contrib-gift
   - 修复一些之前不能使用的一些bug
   - 更改提醒方式为提前n天,这个时间范围内每天都会提醒
   - 增加纪念日条目的数据内容,包括日期,星期几
+  - 修复一个1day错误
 
 
 ## Maintainers

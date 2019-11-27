@@ -4,7 +4,7 @@
  * @Description   : 
  * @Date          : 2019-11-26 23:51:05
  * @LastEditors   : fineemb
- * @LastEditTime  : 2019-11-27 00:52:44
+ * @LastEditTime  : 2019-11-27 22:06:55
  */
 module.exports = function (RED) {
     const miDevicesUtils = require('./utils');
@@ -32,7 +32,7 @@ module.exports = function (RED) {
             for (let i in brithDay) {
                 let day = brithDay[i]
                 let datas = miDevicesUtils.isBrithday(day.mac,nd)
-                if (datas['days'] < days && datas['days'] > -1) {
+                if (datas['days'] <= days && datas['days'] > -1) {
                     let notify = Object.assign(day)
                         notify['datas'] = datas;
                         notify['type'] = type;
